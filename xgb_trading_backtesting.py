@@ -192,6 +192,19 @@ prices.rename(columns ={
     'Volume': 'volume'}, inplace=True)
 prices
 
+# Buy/Sell signals plot
+sells = prices.loc[prices['predicted'] == 1]; 
+buys = prices.loc[prices['predicted'] == -1];
+# Plot
+fig = plt.figure(figsize=(20, 5));
+plt.plot(prices.index[-100:], prices['close'][-100:], lw=2., label='Price');
+# Plot buy and sell signals
+plt.plot(buys.index[-100:], prices.loc[buys.index]['close'][-100:], 'v', markersize=10, color='red', lw=2., label='Buy');
+plt.plot(sells.index[-100:], prices.loc[sells.index]['close'][-100:], '^', markersize = 10, color='green', lw=2., label='Sell');
+plt.ylabel('Price (USD)'); plt.xlabel('Date');
+plt.title('Last 100 Buy and Sell signals'); plt.legend(loc='best');
+plt.show()
+
 OHLCV = ['open', 'high', 'low', 'close', 'volume']
 
 # class to define the columns we will provide
