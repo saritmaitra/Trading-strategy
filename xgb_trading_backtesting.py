@@ -54,21 +54,7 @@ plt.ylabel('price ($)')
 plt.show()
 
 """### ***Predictors***
-We are going to omit High, Low and Open, using only Open and Volume for the study. Let’s start preparing the data for the analysis. The predictors (X variables) to be used to predict the target magnitued (y variable) will be the following ones:
 
-Two day simple moving average (SMA2). The formula is (Ct – Ct-1)/2, being Ct equal to current day’s open price and Ct-1 to previous day’s open price. This formula is applied to each row of the data set.
-
-### 1 day window SMA2. The previous day’s SMA2 value.
-
-And the other predictors will be:
-
-- Current day SMA2 increment. (SMA2t – SMA2t-1).
-- 1 day window SMA2 increment. (SMA2t-1 – SMA2t-2).
-- Current day volume increment. (Volt – Volt-1).
-- Current day volume rate of change. (Volt – Volt-1)/Volt
-- 1 day window open price. (Ct-1)
-- Current day open price increment. Ct – Ct-1
-- Current day open price. Ct.
 """
 
 lags = 5
